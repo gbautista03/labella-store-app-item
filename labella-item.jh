@@ -1,0 +1,27 @@
+entity Item {
+	name String required,
+	description String required,
+    price Double required,
+    image ImageBlob
+}
+
+entity ItemType {
+	type String required,
+    description String,
+    image ImageBlob
+}
+
+relationship OneToOne {
+    Item{type(type)} to ItemType,
+}
+// Set pagination options
+paginate Item with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
